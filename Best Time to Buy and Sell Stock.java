@@ -8,7 +8,7 @@ class Solution {
         int max = prices[right] - prices[left];
         while (right < prices.length) {
             if (prices[left] > prices[right]) {
-                left++;
+                left = right;
             } else {
                 int diff = prices[right] - prices[left];
                 if (diff > max) {
