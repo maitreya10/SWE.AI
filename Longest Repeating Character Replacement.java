@@ -1,3 +1,4 @@
+// This is done by the O(26*n) method , but there is also a faster O(n) method.
 class Solution {
     public int characterReplacement(String s, int k) {
         int max = 0;
