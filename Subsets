@@ -1,0 +1,22 @@
+// The idea is to have 2 conditions.
+// One in which we take the element into consideration.
+// One in which we not take the element into consideration.
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        helper(ans, 0, nums, list);
+        return ans;
+    }
+    private void helper(List<List<Integer>> ans, int start,int[] nums, List<Integer> list) {
+        if (start >= nums.length) {
+            ans.add(new ArrayList<>(list)); // here we need a deep copy so we cannot do just "ans.add(list)" as 
+            // the "list" changes with every recursive call.
+        } else {
+            list.add(nums[start]);
+            helper(ans, start + 1, nums, list);
+            list.remove(list.size() - 1);
+            helper(ans, start + 1, nums, list);
+        }
+    }
+}
