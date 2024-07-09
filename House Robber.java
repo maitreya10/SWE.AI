@@ -47,3 +47,17 @@ class Solution {
         return Math.max(dp0, dp1);
     }
 }
+// Python Code:
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Array is (say) : nums = [rob1, rob2, n, n + 1, ....]
+        rob1, rob2 = 0, 0
+        for n in nums:
+            tmp = max(n + rob1, rob2)
+            rob1 = rob2
+            rob2 = tmp 
+        return rob2
